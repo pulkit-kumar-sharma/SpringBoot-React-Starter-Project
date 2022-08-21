@@ -8,7 +8,8 @@ function App() {
   const [data, setData] = React.useState("");
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/hello')
+    const url = `${process.env.REACT_APP_BACKEND_API_BASE_URL}/api/hello`;
+    fetch(url)
         .then(response => response.text())
         .then(message => {
             setData(message);
